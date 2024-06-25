@@ -11,8 +11,8 @@ let server;
 
 const proxy = httpProxy.createProxyServer({});
 
-function runPowerShellScript() {
-    exec(`${pathPowershell} -ExecutionPolicy Bypass -File "./scripts/enableProxy.ps1"`, (error, stdout, stderr) => {
+function runPowerShellScript(pathScriptPowershell) {
+    exec(`${pathPowershell} -ExecutionPolicy Bypass -File "${pathScriptPowershell}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing PowerShell script: ${error}`);
             return;
@@ -51,7 +51,8 @@ function startProxyServer() {
     const port = 8000;
     server.listen(port, () => {
         console.log(`Proxy server running on port ${port}`);
-        runPowerShellScript();
+        const pathScriptEnableProxy = './scripts/enableProxy.ps1'
+        runPowerShellScript(pathScriptEnableProxy);
     });
 }
 
@@ -63,6 +64,18 @@ function startProxy() {
     }
 }
 
+
+function stopProxy(){
+    if (server) {
+        startProxyServer();
+    } else {
+        console.log('Proxy server is already stop');
+    }
+}
+
+
+
 module.exports = {
     startProxy,
+    stopProxy
 };

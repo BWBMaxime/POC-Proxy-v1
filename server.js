@@ -1,7 +1,7 @@
 const http = require('http');
 const routes = require('./routes/enableProxy.routes');
 
-const port = 8001;
+const port = 8002;
 
 const server = http.createServer(routes);
 
