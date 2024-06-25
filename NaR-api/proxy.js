@@ -28,8 +28,14 @@ function handleRequest(req, res) {
 
 function handleConnect(req, socket, head) {
     const [, targetHost, targetPort] = req.url.match(/^([^:]+):(\d+)$/);
+    const filterStrings = ['chatgpt', 'discord', 'writesonic']; 
 
-    fs.appendFileSync(logFile, `${new Date().toISOString()} - CONNECT ${targetHost}:${targetPort}\n`);
+    // Vérifier si l'une des chaînes filterStrings est présente dans l'URL de la requête
+    const isFiltered = filterStrings.some(filterString => req.url.includes(filterString));
+
+    if (isFiltered) {
+        fs.appendFileSync(logFile, `${new Date().toISOString()} - CONNECT ${targetHost}:${targetPort}\n`);
+    }
 
     const proxySocket = net.connect(targetPort, targetHost, () => {
         socket.write('HTTP/1.1 200 Connection Established\r\n\r\n');
@@ -51,7 +57,7 @@ function startProxyServer() {
     const port = 8000;
     server.listen(port, () => {
         console.log(`Proxy server running on port ${port}`);
-        const pathScriptEnableProxy = './scripts/enableProxy.ps1'
+        const pathScriptEnableProxy = './NaR-api/scripts/enableProxy.ps1'
         runPowerShellScript(pathScriptEnableProxy);
     });
 }
@@ -67,7 +73,7 @@ function startProxy() {
 
 function stopProxy(){
     if (server) {
-        const pathScriptDisableProxy = './scripts/disableProxy.ps1'
+        const pathScriptDisableProxy = './NaR-api/scripts/disableProxy.ps1'
         runPowerShellScript(pathScriptDisableProxy);
     } else {
         console.log('Proxy server is already stop');

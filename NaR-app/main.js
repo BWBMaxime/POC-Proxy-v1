@@ -5,7 +5,7 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1000,
     height: 800,
-    icon: path.join(__dirname, 'logo-rond.png'),
+    icon: './NaR-app/img/logo-rond.png',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Vérifiez que ce chemin est correct
       nodeIntegration: false, // Assurez-vous que cela est false pour des raisons de sécurité
@@ -13,7 +13,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile('index.html');
+  win.loadFile('./NaR-app/index.html');
 }
 
 app.on('ready', createWindow);
