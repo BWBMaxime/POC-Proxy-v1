@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electron App</title>
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not A Robot</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>Electron App</h1>
-  <button id="start-session">Commencer la session</button>
-  <button id="end-session">Finir la session</button>
+
+<body class="bg-app text-white flex flex-col items-center justify-center min-h-screen">
+    <img src="logo-rond.png" alt="Logo" class="mb-4 h-28 w-28 rounded-lg">
+    <h1 class="text-3xl font-bold mb-6">Examen de RGPD rédactionnel</h1>
+    <div class="separator mb-6"></div> <!-- Séparateur violet -->
+    
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 text-center">
+        <div class="border border-white rounded px-4 py-2 max-w-md">
+            <h3 class="text-white text-lg font-bold mb-2">
+                <i class="fas fa-exclamation-triangle mr-2 color-app"></i> Sites interdits
+            </h3>
+            <ul class="text-white">
+                <li>ChatGPT (OpenAI)</li>
+                <li>Jasper AI</li>
+                <li>Writesonic</li>
+                <li>Copy.ai</li>
+            </ul>
+        </div>
+        <div class="border border-white rounded px-4 py-2 max-w-md mt-4 md:mt-0">
+            <h3 class="text-white text-lg font-bold mb-2">
+                <i class="far fa-sticky-note mr-2 color-app"></i> Note
+            </h3>
+            <p class="text-white text-sm md:text-base">
+                Note de l'examen RGPD :
+                <br>
+                L'examen portera sur l'importance du RGPD, ses principes fondamentaux, les droits des personnes
+                concernées, ainsi que les obligations des responsables de traitement.
+                <br>
+                Vous devrez démontrer votre compréhension de ces éléments clés et leur application pratique.
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 text-center mt-6">
+        <div class="border border-white rounded px-4 py-2 max-w-md">
+            <h3 class="text-white text-lg font-bold mb-2">
+                <i class="fas fa-hourglass mr-2 color-app"></i> Durée
+            </h3>
+            <h1 class="text-white text-2xl">3 heures</h1>
+        </div>
+        <div class="border border-white rounded px-4 py-2 max-w-md mt-4 md:mt-0">
+            <h3 class="text-white text-lg font-bold mb-2">
+                <i class="fas fa-stopwatch mr-2 color-app"></i> Temps restant
+            </h3>
+            <!-- Ici vous pouvez ajouter un élément HTML pour afficher le temps restant -->
+            <h1 class="text-white text-2xl">00:00:00</h1>
+        </div>
+    </div>
+
+    <div class="mt-6 space-x-4 mb-10">
+        <button id="start-session" class="bg-white hover:bg-green-200 text-app font-bold py-2 px-4 rounded">
+            Commencer la session
+        </button>
+        <button id="end-session" class="bg-white hover:bg-red-200 text-app font-bold py-2 px-4 rounded">
+            Finir la session
+        </button>
+    </div>
 </body>
+
 </html>

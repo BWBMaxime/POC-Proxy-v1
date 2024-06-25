@@ -1,0 +1,37 @@
+/* Vos styles personnalisés */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.bg-app{
+    background-color: #2F2B3D
+}
+
+.text-app{
+    color:  #2F2B3D
+}
+
+.color-app{
+    color:  #6651B8
+}
+
+/* style.css */
+
+.separator {
+    width: 40%; /* Largeur du séparateur */
+    height: 5px; /* Hauteur du séparateur */
+    background-color: #6651B8; /* Couleur violette du séparateur */
+    margin-bottom: 5%; /* Marge en bas du séparateur */
+  }
+
+  
+  
+/* Styles spécifiques aux boutons */
+.btn {
+  @apply px-4 py-2 rounded bg-blue-500 text-white;
+}

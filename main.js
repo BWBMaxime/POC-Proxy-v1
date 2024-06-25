@@ -3,8 +3,9 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 800,
+    icon: path.join(__dirname, 'logo-rond.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), // Vérifiez que ce chemin est correct
       nodeIntegration: false, // Assurez-vous que cela est false pour des raisons de sécurité
