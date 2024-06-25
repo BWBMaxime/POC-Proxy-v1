@@ -9,7 +9,7 @@ function enableProxy(req, res) {
 function disableProxy(req, res) {
     proxy.stopProxy();
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Proxy enabled successfully');
+    res.end('Proxy disabled successfully');
 }
 
 module.exports = {

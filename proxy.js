@@ -67,7 +67,8 @@ function startProxy() {
 
 function stopProxy(){
     if (server) {
-        startProxyServer();
+        const pathScriptDisableProxy = './scripts/disableProxy.ps1'
+        runPowerShellScript(pathScriptDisableProxy);
     } else {
         console.log('Proxy server is already stop');
     }

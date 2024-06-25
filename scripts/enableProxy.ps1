@@ -1,5 +1,4 @@
 $proxyServer = "http://localhost:8000"  # Mettez à jour avec l'adresse et le port de votre serveur proxy
-
 # Configurer le proxy pour HTTP et HTTPS
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyServer -Value "$proxyServer"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value 1

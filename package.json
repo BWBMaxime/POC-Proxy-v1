@@ -9,5 +9,14 @@
     "path": "^0.12.7",
     "tls": "^0.0.1",
     "url": "^0.11.3"
+  },
+  "devDependencies": {
+    "electron": "^31.0.2"
+  },
+  "name": "electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
   }
 }
