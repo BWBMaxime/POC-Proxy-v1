@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
-
 <body class="bg-app text-white flex flex-col items-center justify-center min-h-screen">
     <img src="./img/logo-rond.png" alt="Logo" class="mb-4 h-28 w-28 rounded-lg">
     <h1 class="text-3xl font-bold mb-6">Examen de RGPD rédactionnel</h1>
@@ -22,10 +20,11 @@
                 <i class="fas fa-exclamation-triangle mr-2 color-app"></i> Sites interdits
             </h3>
             <ul class="text-white">
-                <li>ChatGPT (OpenAI)</li>
-                <li>Jasper AI</li>
-                <li>Writesonic</li>
-                <li>Copy.ai</li>
+                <li>- ChatGPT (OpenAI)</li>
+                <br>
+                <li>- Discord</li>
+                <br>
+                <li>- Writesonic</li>
             </ul>
         </div>
         <div class="border border-white rounded px-4 py-2 max-w-md mt-4 md:mt-0">
@@ -51,11 +50,11 @@
             <h1 class="text-white text-2xl">3 heures</h1>
         </div>
         <div class="border border-white rounded px-4 py-2 max-w-md mt-4 md:mt-0">
-            <h3 class="text-white text-lg font-bold mb-2">
+            <h3 id="time" class="text-white text-lg font-bold mb-2">
                 <i class="fas fa-stopwatch mr-2 color-app"></i> Temps restant
             </h3>
             <!-- Ici vous pouvez ajouter un élément HTML pour afficher le temps restant -->
-            <h1 class="text-white text-2xl">00:00:00</h1>
+            <h1 id="timer" class="text-white text-2xl">03:00:00</h1>
         </div>
     </div>
 
@@ -68,5 +67,4 @@
         </button>
     </div>
 </body>
-
 </html>

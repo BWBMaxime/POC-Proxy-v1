@@ -4,6 +4,7 @@ const https = require('https');
 const httpProxy = require('http-proxy');
 const fs = require('fs');
 const net = require('net');
+const path = require('path');
 
 const pathPowershell = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe'; // Remplacez par votre chemin exact
 const logFile = 'requests.log';
@@ -12,6 +13,7 @@ let server;
 const proxy = httpProxy.createProxyServer({});
 
 function runPowerShellScript(pathScriptPowershell) {
+    // Exécuter le script PowerShell
     exec(`${pathPowershell} -ExecutionPolicy Bypass -File "${pathScriptPowershell}"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing PowerShell script: ${error}`);
@@ -28,7 +30,7 @@ function handleRequest(req, res) {
 
 function handleConnect(req, socket, head) {
     const [, targetHost, targetPort] = req.url.match(/^([^:]+):(\d+)$/);
-    const filterStrings = ['chatgpt', 'discord', 'writesonic']; 
+    const filterStrings = ['chatgpt', 'discord', 'writesonic'];
 
     // Vérifier si l'une des chaînes filterStrings est présente dans l'URL de la requête
     const isFiltered = filterStrings.some(filterString => req.url.includes(filterString));
@@ -64,6 +66,10 @@ function startProxyServer() {
 
 function startProxy() {
     if (!server) {
+        const logFilePath = path.join(__dirname, '../../requests.log');
+        fs.writeFileSync(logFilePath, '', 'utf8');
+        console.log('requests.log file created at the project root');
+        console.log('requests.log file created at the project root');
         startProxyServer();
     } else {
         console.log('Proxy server is already running');
@@ -71,7 +77,7 @@ function startProxy() {
 }
 
 
-function stopProxy(){
+function stopProxy() {
     if (server) {
         const pathScriptDisableProxy = './NaR-api/scripts/disableProxy.ps1'
         runPowerShellScript(pathScriptDisableProxy);

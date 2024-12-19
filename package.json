@@ -1,4 +1,12 @@
 {
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "main": "./NaR-app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
   "dependencies": {
     "child_process": "^1.0.2",
     "fs": "^0.0.1-security",
@@ -12,12 +20,36 @@
     "url": "^0.11.3"
   },
   "devDependencies": {
-    "electron": "^31.0.2"
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3"
   },
-  "name": "electron-app",
-  "version": "1.0.0",
-  "main": "./NaR-app/main.js",
-  "scripts": {
-    "start": "electron ."
+  "build": {
+    "appId": "NotARobot",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "NaR-app/**/*",
+      "NaR-api/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "NotARobot.category"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "extraResources": [
+      {
+        "from": "C:/Users/maxim/Documents/Epsi/notarobot/POC-Proxy-v1/NaR-app/",
+        "to": "resources/"
+      }
+    ],
+    "asarUnpack": [
+      "**/node_modules/7zip-bin/**"
+    ]
   }
 }
